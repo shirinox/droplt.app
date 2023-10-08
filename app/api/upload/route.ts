@@ -1,9 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import { env } from '@/lib/getenv';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../auth/[...nextauth]/route';
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
+	const session = await getServerSession(authOptions);
+	if (!session) return NextResponse.json({ success: false });
+	const { user } = session;
 	const data = await req.formData();
+
 	const files: File[] | null = data.getAll('files') as unknown as File[];
 	console.log(data);
 
@@ -16,8 +22,8 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
 		const buffer = Buffer.from(bytes);
 		const command = new PutObjectCommand({
 			Bucket: 'droplt',
-			Key: file.name,
-			ContentType: 'application/zip',
+			Key: `${user?.email}/${file.name}`,
+			ContentType: file.type,
 			Body: buffer,
 		});
 		try {

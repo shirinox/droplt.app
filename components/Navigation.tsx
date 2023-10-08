@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Menu, Plus, User } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { Button } from './ui/button';
-import { Badge } from './ui/badge';
 
 const Navigation = () => {
 	return (
@@ -11,7 +10,6 @@ const Navigation = () => {
 				<Link href='/'>
 					<Image className='mx-auto' src='/droplt.svg' alt='Droplt logo' width={48} height={48} />
 				</Link>
-				<Badge className='bg-primary/20 w-fit h-fit text-primary'>beta</Badge>
 			</div>
 
 			<div className='flex gap-4 items-center'>

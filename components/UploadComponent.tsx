@@ -1,11 +1,9 @@
 'use client';
 
-import { bytesToSize } from '@/lib/utils';
-import { FolderUp, Loader2, MousePointerClick } from 'lucide-react';
+import { FolderUp, MousePointerClick } from 'lucide-react';
 import { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { ScrollArea } from './ui/scroll-area';
-import JSZip from 'jszip';
+import { SessionProvider, useSession } from 'next-auth/react';
 
 type DropFile = File & { preview: string };
 
