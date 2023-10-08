@@ -1,4 +1,5 @@
-import { ArrowDown, DollarSign, Folder, MousePointer2, PartyPopper, Shield, ShieldCheck } from 'lucide-react';
+import Plans from '@/components/hero/Plans';
+import { ArrowDown, Folder, MousePointer2, PartyPopper } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -20,14 +21,14 @@ export default function Home() {
 			</Link>
 			<h1 className='text-4xl font-bold mt-4 mb-2'>
 				Uploading files shouldn't be <span className='text-red-400'>hard</span>. <br />
-				<span className='text-blue-500'>Droplt</span> is only one <span className='text-blue-500'>drop</span>{' '}
+				<span className='text-primary'>Droplt</span> is only one <span className='text-primary'>drop</span>{' '}
 				away.
 			</h1>
 			<p className='text-lg'>
 				Droplt is an <Link href={'https://github.com/shirinox/droplt.app'}>open-source</Link>{' '}
 				<span className='font-semibold'>lifetime</span> file sharing service.
 			</p>
-			<ArrowDown className='text-blue-500 mx-auto mt-4 mb-8 animate-bounce w-10 h-10' />
+			<ArrowDown className='text-primary mx-auto mt-4 mb-8 animate-bounce w-10 h-10' />
 			<div className='my-4 text-center mx-auto max-w-3xl'>
 				<div className='w-fit h-fit mx-auto relative'>
 					<Folder className='fill-primary text-primary/20 w-32 h-32 mx-auto relative' />
@@ -35,12 +36,7 @@ export default function Home() {
 				</div>
 				<MousePointer2 className='text-primary w-16 h-16 mx-auto translate-x-20 -translate-y-8 z-10' />
 			</div>
-			<div className='mt-32 max-w-3xl rounded mx-auto p-6'>
-				<h4 className='text-4xl text-primary font-bold mt-4'>
-					Simple needs, <br /> transparent prices
-				</h4>
-				<p className='text-lg my-2'>Start free and upgrade up to your needs.</p>
-			</div>
+			<Plans />
 		</div>
 	);
 }

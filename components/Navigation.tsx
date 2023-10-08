@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Menu } from 'lucide-react';
 import { Button } from './ui/button';
+import { SheetTrigger, SheetContent, SheetHeader, Sheet, SheetTitle } from './ui/sheet';
 
 const Navigation = () => {
 	return (
@@ -13,12 +14,34 @@ const Navigation = () => {
 			</div>
 
 			<div className='flex gap-4 items-center'>
-				<Link href='/plans'>
+				<Link href='/dashboard'>
 					<Button className='rounded-full hover:ring-2 ring-offset-2 hover:ring-offset-4 transition-all'>
 						Get started free
 					</Button>
 				</Link>
-				<Menu className='text-white bg-primary rounded-full p-2 w-10 h-10 cursor-pointer' />
+				<Sheet>
+					<SheetTrigger>
+						<Menu className='text-white bg-primary rounded-full p-2 w-10 h-10 cursor-pointer' />
+					</SheetTrigger>
+					<SheetContent className='bg-primary/70'>
+						<SheetHeader>
+							<SheetTitle>
+								<Image src={'/dropltfull.svg'} alt='Full Droplt Logo' width={128} height={64} />
+							</SheetTitle>
+						</SheetHeader>
+						<div className='flex flex-col my-8 gap-4 text-left text-primary-foreground'>
+							<Link href={'/dashboard'} className='text-3xl font-bold hover:underline'>
+								Dashboard
+							</Link>
+							<Link href={'/dashboard'} className='text-3xl font-bold hover:underline'>
+								Dashboard
+							</Link>
+							<Link href={'/dashboard'} className='text-3xl font-bold hover:underline'>
+								Dashboard
+							</Link>
+						</div>
+					</SheetContent>
+				</Sheet>
 			</div>
 		</nav>
 	);
