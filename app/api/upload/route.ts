@@ -33,8 +33,6 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
 			console.error(err);
 		}
 	});
-	// const body: FormData = data.body.getAll('files');
-	// console.log(body);
 	const client = new S3Client({
 		region: env.AWS_REGION,
 		credentials: {
@@ -46,14 +44,3 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
 	return NextResponse.json({ success: true });
 };
 
-// if (!files) {
-// 	return NextResponse.json({ success: false });
-// }
-// const client = new S3Client({});
-// const zip = new JSZip();
-
-// if (files.length > 1) {
-// files.map((file) => zip.file(file.name, file));
-// zip.generateAsync({ type: 'blob' }).then(async (content) => {
-//
-// });
